@@ -41,12 +41,13 @@ defmodule Coney.RabbitConnection do
     end
   end
 
-  #defp connect(url) do
-  #  url
-  #  |> choose_server()
-  #  |> Connection.open()
-  #end
-  defp connect(settings) do
+  defp connect(url) when is_binary(url) do
+    url
+    |> choose_server()
+    |> Connection.open()
+  end
+
+  defp connect(settings) when is_list(settings) do
     settings 
     |> Connection.open()
   end
