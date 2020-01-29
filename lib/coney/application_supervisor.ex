@@ -40,6 +40,9 @@ defmodule Coney.ApplicationSupervisor do
       is_map(config) ->
         config
 
+      is_list(config) ->
+        config
+
       is_nil(config) ->
         default
 
